@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1px187xl5h5s"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_xijj8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yp2yo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwpfr"]
+albedo_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1nebk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ee8n8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gr6gy"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_xijj8")
+metadata/_edit_group_ = true
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_yp2yo")
+surface_material_override/0 = SubResource("StandardMaterial3D_qwpfr")
+
+[node name="BodyCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1nebk")
+
+[node name="VisorMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.09278e-08, -0.25, 1.09278e-08, 0, -1.09278e-08, -0.25, 0.25, -1.09278e-08, 4.77671e-16, 0, 0.475, -0.475)
+mesh = SubResource("CapsuleMesh_ee8n8")
+
+[node name="VisorCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0.25, -1.09278e-08, 0, -1.09278e-08, -0.25, -0.25, -1.09278e-08, 4.77671e-16, 0, 0.475, -0.475)
+shape = SubResource("CapsuleShape3D_gr6gy")
